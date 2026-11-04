@@ -83,3 +83,25 @@ const newPutData = await putResponse.json();
 console.log("PUT RESULTS:");
 console.log(newPutData);
 console.log("Status:", putResponse.status);
+
+
+
+
+// DELETE - Remove data
+
+const deleteId = 1;
+
+const deleteResponse = await fetch(
+  `https://jsonplaceholder.typicode.com/posts/${deleteId}`,
+  {
+    method: "DELETE"
+  }
+);
+
+if (!deleteResponse.ok) {
+  throw new Error(`HTTP ${deleteResponse.status}`);
+}
+
+console.log("DELETE RESULTS:");
+console.log("Status:", deleteResponse.status);
+console.log("Post deleted successfully!");
