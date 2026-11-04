@@ -177,3 +177,24 @@ fetch("https://jsonplaceholder.typicode.com/posts/1")
     console.log("Something went wrong:");
     console.log(error.message);
   });
+
+
+
+  // Practice handling a failed request
+
+fetch("https://jsonplaceholder.typicode.com/posts/999999")
+  .then((response) => {
+    console.log("STATUS CODE:", response.status);
+
+    if (!response.ok) {
+      throw new Error("Post not found!");
+    }
+
+    return response.json();
+  })
+  .then((data) => {
+    console.log("POST DETAILS:", data);
+  })
+  .catch((error) => {
+    console.log("ERROR:", error.message);
+  });
