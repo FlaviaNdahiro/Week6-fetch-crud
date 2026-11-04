@@ -55,5 +55,31 @@ console.log(created);
 console.log("Status:", response.status);
 
 
+// PUT - Update data
 
+const putData = {
+  title: "Muraho Kigali",
+  body: "My first post",
+  userId: 1
+};
 
+const id = 1;
+
+const putResponse = await fetch(
+  `https://jsonplaceholder.typicode.com/posts/${id}`,
+  {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(putData)
+  }
+);
+
+if (!putResponse.ok) {
+  throw new Error(`HTTP ${putResponse.status}`);
+}
+
+const newPutData = await putResponse.json();
+
+console.log("PUT RESULTS:");
+console.log(newPutData);
+console.log("Status:", putResponse.status);
