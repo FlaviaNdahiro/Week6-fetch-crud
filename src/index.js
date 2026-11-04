@@ -159,6 +159,7 @@ myPromise
 
 fetch("https://jsonplaceholder.typicode.com/posts/1")
   .then((response) => {
+    console.log("STATUS CODE:", response.status);
     return response.json();
   })
   .then((data) => {
@@ -169,4 +170,3 @@ fetch("https://jsonplaceholder.typicode.com/posts/1")
     console.log("Something went wrong:");
     console.log(error.message);
   });
-  
