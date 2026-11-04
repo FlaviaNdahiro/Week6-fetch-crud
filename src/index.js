@@ -155,11 +155,18 @@ myPromise
 
 
 
-  // Promise practice with fetch()
+// Promise practice with fetch()
 
 fetch("https://jsonplaceholder.typicode.com/posts/1")
   .then((response) => {
     console.log("STATUS CODE:", response.status);
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch post");
+    }
+
+    console.log("REQUEST SUCCESSFUL:", response.ok);
+
     return response.json();
   })
   .then((data) => {
