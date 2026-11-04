@@ -128,3 +128,45 @@ try {
   console.log("Something went wrong:");
   console.log(error.message);
 }
+
+
+
+
+// Promise practice
+
+const myPromise = new Promise((resolve, reject) => {
+  const success = true;
+
+  if (success) {
+    resolve("The operation was successful!");
+  } else {
+    reject("Something went wrong!");
+  }
+});
+
+// Handle the Promise
+myPromise
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+
+
+  // Promise practice with fetch()
+
+fetch("https://jsonplaceholder.typicode.com/posts/1")
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    console.log("POST DETAILS:");
+    console.log(data);
+  })
+  .catch((error) => {
+    console.log("Something went wrong:");
+    console.log(error.message);
+  });
+  
